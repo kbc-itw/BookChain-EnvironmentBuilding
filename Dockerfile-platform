@@ -11,15 +11,10 @@ RUN apt install git -y
 
 
 
-#Nodejs 8.8.1
+#Nodejs 8.9.2
 
-RUN apt install nodejs -y
-RUN apt install npm -y
-RUN npm cache clean
-RUN npm install n -g
-RUN n stable
-RUN n 8.8.1
-RUN node -v
+RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+RUN apt-get install -y nodejs
 
 WORKDIR /opt
 
