@@ -6,6 +6,9 @@ set -e
 apt update -y
 apt upgrade -y
 
+#git
+sudo apt install git -y
+
 #Nodejs 8.9.2
 RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 RUN apt-get install -y nodejs
