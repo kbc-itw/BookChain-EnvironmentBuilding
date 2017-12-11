@@ -13,12 +13,14 @@ apt install git -y
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 apt-get install -y nodejs
 
-#fabricの必要なイメージ一覧の取得
-curl -sSL https://goo.gl/5ftp2f | bash
-
 #fabric-sample　pull
 cd /opt
 git clone https://github.com/hyperledger/fabric-samples.git
+cd ./fabric-samples
+
+#fabricの必要なイメージ一覧の取得
+curl -sSL https://goo.gl/5ftp2f | bash
+
 export PATH=$PATH:/opt/fabric-samples/bin
 cd ./fabric-samples/fabcar
 
