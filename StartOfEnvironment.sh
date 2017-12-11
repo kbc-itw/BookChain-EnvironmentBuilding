@@ -23,7 +23,7 @@ cd ./fabric-samples/fabcar
 
 #サンプルで使うfabric環境を作成
 ./startFabric.sh
-npm i
+npm install
 node enrollAdmin.js
 node registerUser.js
 
