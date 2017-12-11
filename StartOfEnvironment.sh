@@ -19,6 +19,7 @@ curl -sSL https://goo.gl/5ftp2f | bash
 #fabric-sample　pull
 cd /opt
 git clone https://github.com/hyperledger/fabric-samples.git
+export PATH=$PATH:/opt/fabric-samples/bin
 cd ./fabric-samples/fabcar
 
 #サンプルで使うfabric環境を作成
