@@ -30,5 +30,6 @@ RUN mv dist/*.* /opt/public
 RUN git clone https://github.com/kbc-itw/BookChain.git
 WORKDIR ./BookChain
 RUN npm install
+RUN npm run build
 RUN npm start
 EXPOSE 80
