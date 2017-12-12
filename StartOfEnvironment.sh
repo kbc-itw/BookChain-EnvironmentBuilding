@@ -9,9 +9,10 @@ apt upgrade -y
 #git
 apt install git -y
 
-#Nodejs 8.9.2
-curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-apt-get install -y nodejs
+#Nodejs LTS
+apt install npm -y
+npm install -g n
+n lts
 
 #fabric-sample　pull
 cd /opt
