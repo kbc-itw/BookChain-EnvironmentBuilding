@@ -13,6 +13,13 @@ apt install git -y
 npm config set user 0
 npm config set unsafe-perm true
 
+#make install
+apt install make -y
+#g++ install
+apt install g++ -y
+#gcc install
+apt install gcc -y
+
 #fabric-sample　pull
 cd /opt
 git clone https://github.com/hyperledger/fabric-samples.git
