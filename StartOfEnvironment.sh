@@ -22,7 +22,7 @@ cd ./fabric-samples
 curl -sSL https://goo.gl/5ftp2f | bash
 
 export PATH=$PATH:/opt/fabric-samples/bin
-cd ./fabric-samples/fabcar
+cd ./fabcar
 
 #サンプルで使うfabric環境を作成
 ./startFabric.sh
