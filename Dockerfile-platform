@@ -16,10 +16,12 @@ RUN apt-get install -y nodejs
 #gitのクローンはこのフォルダで行う
 WORKDIR /opt
 
+#BookChain-Clientをpull
 RUN git https://github.com/kbc-itw/BookChain-Client.git
 WORKDIR ./BookChain-Client
 RUN npm install
 RUN npm run build
+
 #BookChainのパブリックフォルダにビルドしたものを入れる
 RUN mkdir /opt/public
 RUN mv dist/*.* /opt/public
