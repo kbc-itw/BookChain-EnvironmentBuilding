@@ -3,9 +3,6 @@
 #エラーが起きた際にその場で止める
 set -e
 
-apt update -y
-apt upgrade -y
-
 #git
 apt install git -y
 
