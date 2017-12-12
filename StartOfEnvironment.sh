@@ -7,8 +7,8 @@ set -e
 apt install git -y
 
 #Nodejs 8.x 
--curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
- -apt-get install -y nodejs
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+apt-get install -y nodejs
 
 npm config set user 0
 npm config set unsafe-perm true
