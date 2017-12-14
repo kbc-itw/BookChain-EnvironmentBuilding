@@ -34,3 +34,5 @@ npm install
 node enrollAdmin.js
 node registerUser.js
 
+cd /opt/BookChain-EnvironmentBuilding/
+docker build -f ./Dockerfile-platform -t platform .
