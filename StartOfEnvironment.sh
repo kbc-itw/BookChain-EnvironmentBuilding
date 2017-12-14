@@ -3,9 +3,6 @@
 #エラーが起きた際にその場で止める
 set -e
 
-#git
-apt install git -y
-
 #Nodejs 8.x 
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 apt-get install -y nodejs
