@@ -10,21 +10,21 @@ RUN apt upgrade -y
 RUN apt install git -y
 
 #Nodejs 8.9.2
-RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get install -y nodejs
 
 #gitのクローンはこのフォルダで行う
 WORKDIR /opt
 
 #BookChain-Clientをpull
-RUN git https://github.com/kbc-itw/BookChain-Client.git
+RUN git clone https://github.com/kbc-itw/BookChain-Client.git
 WORKDIR ./BookChain-Client
 RUN npm install
 RUN npm run build
 
 #BookChainのパブリックフォルダにビルドしたものを入れる
 RUN mkdir /opt/public
-RUN mv dist/*.* /opt/public
+RUN mv dist/* /opt/public
 
 #BookChain
 RUN git clone https://github.com/kbc-itw/BookChain.git
