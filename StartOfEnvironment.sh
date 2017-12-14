@@ -36,3 +36,4 @@ node registerUser.js
 
 cd /opt/BookChain-EnvironmentBuilding/
 docker build -f ./Dockerfile-platform -t platform .
+docker run -d --name platform -t -i -p 80:80 platform
