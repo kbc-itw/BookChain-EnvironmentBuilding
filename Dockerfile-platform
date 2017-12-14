@@ -9,6 +9,9 @@ RUN apt upgrade -y
 #Gitをインストール（儀っとを入れなくてもwgetでひっぱれるのでは？
 RUN apt install git -y
 
+#curl install
+RUN apt install curl -y
+
 #Nodejs 8.9.2
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get install -y nodejs
