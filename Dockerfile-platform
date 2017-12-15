@@ -30,6 +30,7 @@ RUN mkdir /opt/public
 RUN mv dist/* /opt/public
 
 #BookChain
+WORKDIR /opt
 RUN git clone https://github.com/kbc-itw/BookChain.git
 WORKDIR ./BookChain
 RUN npm install
