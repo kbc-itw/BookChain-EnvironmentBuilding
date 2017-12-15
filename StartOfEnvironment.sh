@@ -38,4 +38,4 @@ node registerUser.js
 
 cd /opt/BookChain-EnvironmentBuilding/
 docker build -f ./Dockerfile-platform -t platform .
-docker run -d --name platform -t -i -p 80:80 platform
+docker run -d --name platform -v /opt/fabric-samples/fabcar/hfc-key-store:/opt/BookChain/hfc-key-store -t -i -p 80:80 platform
