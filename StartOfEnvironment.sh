@@ -3,31 +3,21 @@
 #エラーが起きた際にその場で止める
 set -e
 
-apt install curl -y
+export MSYS_NO_PATHCONV=1
 
-#Nodejs 8.x 
-curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-apt-get install -y nodejs
-
-npm config set user 0
-npm config set unsafe-perm true
-
-#make install
-apt install make -y
-#g++ install
-apt install g++ -y
-#gcc install
-apt install gcc -y
+ANYPATH=$PWD
+echo $ANYPATH
 
 #fabric-sample　pull
-cd /opt
+cd $ANYPATH
 git clone https://github.com/hyperledger/fabric-samples.git
 cd ./fabric-samples
 
 #fabricの必要なイメージ一覧の取得
 curl -sSL https://goo.gl/5ftp2f | bash
 
-export PATH=$PATH:/opt/fabric-samples/bin
+export PATH=$PATH:$ANYPATH/fabric-samples/bin
+
 cd ./fabcar
 
 #サンプルで使うfabric環境を作成
@@ -36,6 +26,6 @@ npm install
 node enrollAdmin.js
 node registerUser.js
 
-cd /opt/BookChain-EnvironmentBuilding/
+cd $ANYPATH/BookChain-EnvironmentBuilding
 docker build -f ./Dockerfile-platform -t platform .
-docker run -d --name platform -v /opt/fabric-samples/fabcar/hfc-key-store:/opt/BookChain/hfc-key-store -t -i -p 80:80 platform
+docker run -d --name platform -v $ANYPATH/fabric-samples/fabcar/hfc-key-store:/opt/BookChain/hfc-key-store -t -i -p 80:80 platform
