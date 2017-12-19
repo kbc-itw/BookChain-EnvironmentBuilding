@@ -9,14 +9,14 @@ ANYPATH=$PWD
 echo $ANYPATH
 
 #fabric-sample　pull
-cd $ANYPATH
+cd /$ANYPATH
 git clone https://github.com/hyperledger/fabric-samples.git
 cd ./fabric-samples
 
 #fabricの必要なイメージ一覧の取得
 curl -sSL https://goo.gl/5ftp2f | bash
 
-export PATH=$PATH:$ANYPATH/fabric-samples/bin
+export PATH=$PATH:/$ANYPATH/fabric-samples/bin
 
 cd ./fabcar
 
