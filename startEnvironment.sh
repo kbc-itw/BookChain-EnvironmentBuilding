@@ -17,6 +17,9 @@ cd $ANYPATH
 git clone https://github.com/hyperledger/fabric-samples.git
 cd ./fabric-samples
 
+# fabric-samplesのプロジェクトルートのパス
+FABRIC_SAMPLES_PATH=$PWD
+
 #fabricの必要なイメージ一覧の取得
 curl -sSL https://goo.gl/5ftp2f | bash
 
