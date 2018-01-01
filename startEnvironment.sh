@@ -5,6 +5,9 @@ set -e
 
 export MSYS_NO_PATHCONV=1
 
+# このBookChain-EnvironmentBuildingプロジェクトのルートパス
+BOOKCHAIN_ENV_PATH=$PWD
+
 # ルートパスをANYPATHに設定
 cd ../
 ANYPATH=$PWD
