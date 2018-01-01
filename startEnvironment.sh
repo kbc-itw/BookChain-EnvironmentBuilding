@@ -5,8 +5,9 @@ set -e
 
 export MSYS_NO_PATHCONV=1
 
+# ルートパスをANYPATHに設定
+cd ../
 ANYPATH=$PWD
-echo $ANYPATH
 
 #fabric-sample　pull
 cd $ANYPATH
