@@ -16,6 +16,7 @@ cd ./fabric-samples
 #fabricの必要なイメージ一覧の取得
 curl -sSL https://goo.gl/5ftp2f | bash
 
+#.txファイル・.blockを作成するプログラムのパスを通す
 export PATH=$PATH:$ANYPATH/fabric-samples/bin
 
 cd ./fabcar
