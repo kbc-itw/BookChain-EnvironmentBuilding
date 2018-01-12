@@ -2,6 +2,8 @@
 #fabricを立ち上げるためのshell
 set -ev
 
+CHANNEL_NAME="bookchain"
+
 # fabricを動作させるのに必要なセッティング
 # fabricがすでにある場合に落とす必要がある
 cd ../fabric-samples/basic-network
