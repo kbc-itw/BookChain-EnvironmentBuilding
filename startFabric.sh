@@ -2,13 +2,20 @@
 #fabricを立ち上げるためのshell
 set -ev
 
+Bookchain_EB=${PWD}
+cd ../
+ROOT=${PWD}
+FABRIC_SAMPLES=$ROOT/fabric-samples
+FABRIC_CFG_PATH=$FABRIC_SAMPLES/basic-network
+
 CHANNEL_NAME="bookchain"
 
 # fabricを動作させるのに必要なセッティング
 # fabricがすでにある場合に落とす必要がある
-cd ../fabric-samples/basic-network
+cd $FABRIC_SAMPLES/basic-network
 
-configtxgen -profile OneOrgChannel -outputCreateChannelTx ./config/channel.tx -channelID $CHANNEL_NAME
+$FABRIC_SAMPLES/bin/configtxgen -profile OneOrgChannel -outputCreateChannelTx ./config/channel.tx -channelID $CHANNEL_NAME
+export MSYS_NO_PATHCONV=1
 
 docker-compose -f docker-compose.yml down
 # fabricを立ち上げる
@@ -16,7 +23,7 @@ docker-compose -f docker-compose.yml up -d ca.example.com orderer.example.com pe
 
 # fabricを動作させる
 # fabricが立ち上がるまでの待機時間
-sleep 5
+sleep 10
 
 # チャンネル作成
 docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/Admin@org1.example.com/msp" peer0.org1.example.com peer channel create -o orderer.example.com:7050 -c $CHANNEL_NAME -f /etc/hyperledger/configtx/channel.tx
@@ -28,3 +35,8 @@ rm -rf ../fabcar/hfc-key-store
 
 # chaincodeはnodeで動かす
 LANGUAGE="node"
+
+docker-compose -f ./docker-compose.yml up -d cli
+
+
+# chancodeをセットする
