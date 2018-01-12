@@ -25,3 +25,6 @@ docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/etc/h
 
 # userのkeyをリセット
 rm -rf ../fabcar/hfc-key-store
+
+# chaincodeはnodeで動かす
+LANGUAGE="node"
