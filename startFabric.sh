@@ -1,5 +1,6 @@
+#!/bin/bash
 #fabricを立ち上げるためのshell
-set -e
+set -ev
 
 # fabricを動作させるのに必要なセッティング
 
