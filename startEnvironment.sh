@@ -12,6 +12,15 @@ BOOKCHAIN_ENV_PATH=$PWD
 cd ../
 ANYPATH=$PWD
 
+#BookChain-Chaincode 準備
+cd /$ANYPATH
+git clone https://github.com/kbc-itw/BookChain-Chaincode.git
+cd ./BookChain-Chaincode
+npm install
+#プロジェクトルートにlibフォルダにビルドする
+#必要なchaincodeのjsFileはlibFolderの中にあるchaincodeFolderにある
+npm run build
+
 #fabric-sample　pull
 cd $ANYPATH
 git clone https://github.com/kbc-itw/fabric-samples.git
