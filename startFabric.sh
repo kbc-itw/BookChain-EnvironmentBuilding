@@ -40,3 +40,42 @@ docker-compose -f ./docker-compose.yml up -d cli
 
 
 # chancodeをセットする
+cd $BOOKCHAIN_CC
+CORE_PEER_LOCALMSPID=Org1MSP
+CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+
+# install
+# 作成したchaincodeのパスは/opt/BookChain-Chaincodeにある
+
+# BookChain-Chaincodeのフォルダの名前を取得
+files="./out/*"
+dirary=()
+for filepath in $files; do
+    if [ -d $filepath ] ; then
+        bn=$(basename $filepath)
+        dirary+=( $(basename $filepath) )
+    fi
+done
+
+# フォルダ名をchaincode名でinstall
+for ccname in ${dirary[@]}; do
+    docker exec -e "CORE_PEER_LOCALMSPID=$CORE_PEER_LOCALMSPID" -e "CORE_PEER_MSPCONFIGPATH=$CORE_PEER_MSPCONFIGPATH" cli peer chaincode install -n $ccname -v 1.0 -p "/opt/gopath/src/github.com/BookChain-Chaincode/out/$ccname" -l $LANGUAGE
+done
+
+# インスタンスを立ち上げ
+for ccname in ${dirary[@]}; do
+    docker exec -e "CORE_PEER_LOCALMSPID=$CORE_PEER_LOCALMSPID" -e "CORE_PEER_MSPCONFIGPATH=$CORE_PEER_MSPCONFIGPATH" cli peer chaincode instantiate -o orderer.example.com:7050 -C bookchain -n $ccname -l "$LANGUAGE" -v 1.0 -c '{"Args":[""]}' -P "OR ('Org1MSP.member')"
+done 
+
+echo  "
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,　 ;;;;;;;;;;;, 　 　 ,;;;;;;;;;;;;,　;;;;;;;;;;;;;;;;;;;;;;;;;;;;,,,,,
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;'　 ;;;;;;;;;;;;;;,　 　 ;;;;;;;;;;;;　;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,,
+;;;;;;;;;;;;;　 　 　 　 　             ;;;;;;;;;;;;;;;;, 　 ;;;;;;;;;;;;;　;;;;;;;;;;;; 　　''';;;;;;;;;;;;;,
+;;;;;;;;;;;;;,,,,,,,,,,,,,,,,,,,,, 　  ;;;;;;;;;;;;;;;;;;,,　;;;;;;;;;;;;;　;;;;;;;;;;;;　 　 ';;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 　  ;;;;;;;;;;;;;;;;;;;;,,;;;;;;;;;;;;;　;;;;;;;;;;;;; 　　　 ;;;;;;;;;;;;;
+;;;;;;;;;;;;;'''''''''''''''''''''　   ;;;;;;;;;;; '';;;;;;;;;;;;;;;;;;;;;　;;;;;;;;;;;; 　　　 ;;;;;;;;;;;;;
+;;;;;;;;;;;;; 　 　 　　            　  ;;;;;;;;;;; 　';;;;;;;;;;;;;;;;;;;　;;;;;;;;;;;; 　 　 ,,;;;;;;;;;;;;;'
+;;;;;;;;;;;;;,,,,,,,,,,,,,,,,,,,,,,,,　;;;;;;;;;;;　 　;;;;;;;;;;;;;;;;;;;　;;;;;;;;;;;;,,,,,,;;;;;;;;;;;;;;;'
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;　;;;;;;;;;;;　 　 '';;;;;;;;;;;;;;;　;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;'''
+'';;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;''　'''''''''''　　 　 '''''''''''''　'';;;;;;;;;;;;;;;;;;;;;'''''''
+"
