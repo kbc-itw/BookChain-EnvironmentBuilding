@@ -7,7 +7,7 @@ cd ../
 ROOT=${PWD}
 FABRIC_SAMPLES=$ROOT/fabric-samples
 FABRIC_CFG_PATH=$FABRIC_SAMPLES/basic-network
-
+BOOKCHAIN_CC=$ROOT/BookChain-Chaincode
 CHANNEL_NAME="bookchain"
 
 # fabricを動作させるのに必要なセッティング
