@@ -28,9 +28,6 @@ curl -sSL https://goo.gl/5ftp2f | bash
 #.txファイル・.blockを作成するプログラムのパスを通す
 export PATH=$PATH:$ANYPATH/fabric-samples/bin
 
-#bookchain.txを作成する
-export CHANNEL_NAME=bookchain
-
 cd ./fabcar
 
 #サンプルで使うfabric環境を作成
