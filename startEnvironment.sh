@@ -17,6 +17,8 @@ cd $ANYPATH
 git clone https://github.com/kbc-itw/fabric-samples.git
 cd ./fabric-samples
 
+git checkout --track origin/test
+
 # fabric-samplesのプロジェクトルートのパス
 FABRIC_SAMPLES_PATH=$PWD
 
