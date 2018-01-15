@@ -8,12 +8,12 @@ export MSYS_NO_PATHCONV=1
 # このBookChain-EnvironmentBuildingプロジェクトのルートパス
 BOOKCHAIN_ENV_PATH=$PWD
 
-# ルートパスをANYPATHに設定
+# ルートパスをROOT_PATHに設定
 cd ../
-ANYPATH=$PWD
+ROOT_PATH=$PWD
 
 #BookChain-Chaincode 準備
-cd /$ANYPATH
+cd /$ROOT_PATH
 git clone https://github.com/kbc-itw/BookChain-Chaincode.git
 cd ./BookChain-Chaincode
 npm install
@@ -22,7 +22,7 @@ npm install
 npm run build
 
 #fabric-sample　pull
-cd $ANYPATH
+cd $ROOT_PATH
 git clone https://github.com/kbc-itw/fabric-samples.git
 cd ./fabric-samples
 
@@ -35,16 +35,16 @@ FABRIC_SAMPLES_PATH=$PWD
 curl -sSL https://goo.gl/5ftp2f | bash
 
 #.txファイル・.blockを作成するプログラムのパスを通す
-export PATH=$PATH:$ANYPATH/fabric-samples/bin
+export PATH=$PATH:$ROOT_PATH/fabric-samples/bin
 
-cd ./fabcar
 
 #サンプルで使うfabric環境を作成
+cd $ROOT_PATH/fabric-samples/fabcar
 ./startFabric.sh
 npm install
 node enrollAdmin.js
 node registerUser.js
 
-cd $ANYPATH/BookChain-EnvironmentBuilding
+cd $ROOT_PATH/BookChain-EnvironmentBuilding
 docker build -f ./Dockerfile-platform -t platform .
-docker run -d --name platform -v $ANYPATH/fabric-samples/fabcar/hfc-key-store:/opt/BookChain/hfc-key-store -t -i -p 80:80 platform
+docker run -d --name platform -v $ROOT_PATH/fabric-samples/fabcar/hfc-key-store:/opt/BookChain/hfc-key-store -t -i -p 80:80 platform
