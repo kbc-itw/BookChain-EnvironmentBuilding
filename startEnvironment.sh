@@ -14,7 +14,7 @@ ANYPATH=$PWD
 
 #fabric-sample　pull
 cd $ANYPATH
-git clone https://github.com/hyperledger/fabric-samples.git
+git clone https://github.com/kbc-itw/fabric-samples.git
 cd ./fabric-samples
 
 # fabric-samplesのプロジェクトルートのパス
