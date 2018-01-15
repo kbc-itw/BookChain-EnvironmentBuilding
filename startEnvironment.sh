@@ -50,3 +50,16 @@ node registerUser.js
 cd $ROOT_PATH/BookChain-EnvironmentBuilding
 docker build -f ./Dockerfile-platform -t platform .
 docker run -d --name platform -v $ROOT_PATH/fabric-samples/fabcar/hfc-key-store:/opt/BookChain/hfc-key-store -t -i -p 80:80 platform
+
+
+echo  "
+oooooooooooo ooooo      ooo oooooooooo.   
+`888'     `8 `888b.     `8' `888'   `Y8b  
+ 888          8 `88b.    8   888      888 
+ 888oooo8     8   `88b.  8   888      888 
+ 888    "     8     `88b.8   888      888 
+ 888       o  8       `888   888     d88' 
+o888ooooood8 o8o        `8  o888bood8P'   
+                                          
+                                          
+                                          "
