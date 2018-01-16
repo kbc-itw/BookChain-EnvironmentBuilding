@@ -32,7 +32,7 @@ git checkout --track origin/test
 FABRIC_SAMPLES_PATH=$PWD
 
 #fabricの必要なイメージ一覧の取得
-curl -sSL https://goo.gl/5ftp2f | sudo bash
+curl -sSL https://goo.gl/fMh2s3 | bash
 
 #.txファイル・.blockを作成するプログラムのパスを通す
 export PATH=$PATH:$ROOT_PATH/fabric-samples/bin
