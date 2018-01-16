@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #エラーが起きた際にその場で止める
-set -e
+set -ev
 
 export MSYS_NO_PATHCONV=1
 
@@ -32,7 +32,7 @@ git checkout --track origin/test
 FABRIC_SAMPLES_PATH=$PWD
 
 #fabricの必要なイメージ一覧の取得
-curl -sSL https://goo.gl/5ftp2f | bash
+curl -sSL https://goo.gl/5ftp2f | sudo bash
 
 #.txファイル・.blockを作成するプログラムのパスを通す
 export PATH=$PATH:$ROOT_PATH/fabric-samples/bin
