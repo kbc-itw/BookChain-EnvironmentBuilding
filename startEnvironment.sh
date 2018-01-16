@@ -37,6 +37,9 @@ curl -sSL https://goo.gl/fMh2s3 | bash
 #.txファイル・.blockを作成するプログラムのパスを通す
 export PATH=$PATH:$ROOT_PATH/fabric-samples/bin
 
+# FABRIC_CFG_PATH
+export FABRIC_CFG_PATH=$FABRIC_SAMPLES_PATH/basic-network
+
 cd $BOOKCHAIN_ENV_PATH
 bash startFabric.sh
 
