@@ -33,6 +33,7 @@ RUN mv dist/* /opt/public
 WORKDIR /opt
 RUN git clone https://github.com/kbc-itw/BookChain.git
 WORKDIR ./BookChain
+RUN apt install make -y
 RUN npm install
 RUN npm run build
 CMD ["npm", "start"]
