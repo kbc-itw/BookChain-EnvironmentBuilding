@@ -56,12 +56,11 @@ docker run -d --name platform -v $FABRIC_SAMPLES_PATH/fabcar/hfc-key-store:/opt/
 
 echo  "
 oooooooooooo ooooo      ooo oooooooooo.   
-`888'     `8 `888b.     `8' `888'   `Y8b  
- 888          8 `88b.    8   888      888 
- 888oooo8     8   `88b.  8   888      888 
- 888    "     8     `88b.8   888      888 
- 888       o  8       `888   888     d88' 
-o888ooooood8 o8o        `8  o888bood8P'   
+ 888       8  888b.      8   888     Y8b  
+ 888          8  88b.    8   888      888 
+ 888oooo8     8    88b.  8   888      888 
+ 888    8     8      88b.8   888      888 
+ 888       o  8        888   888     d88  
+o888ooooood8 o8o         8  o888bood8P    
                                           
-                                          
-                                          "
+"
