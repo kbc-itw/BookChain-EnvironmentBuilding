@@ -25,10 +25,6 @@ WORKDIR ./BookChain-Client
 RUN npm install
 RUN npm run build
 
-#BookChainのパブリックフォルダにビルドしたものを入れる
-RUN mkdir /opt/public
-RUN mv dist/* /opt/public
-
 #BookChain
 WORKDIR /opt
 RUN git clone https://github.com/kbc-itw/BookChain.git
