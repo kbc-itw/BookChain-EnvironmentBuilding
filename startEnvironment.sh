@@ -30,8 +30,6 @@ git clone https://github.com/kbc-itw/fabric-samples.git
 fi
 cd ./fabric-samples
 
-git checkout --track origin/test
-
 # fabric-samplesのプロジェクトルートのパス
 FABRIC_SAMPLES_PATH=$PWD
 
