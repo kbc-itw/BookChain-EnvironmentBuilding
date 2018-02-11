@@ -13,7 +13,7 @@ cd ../
 ROOT_PATH=$PWD
 
 #BookChain-Chaincode 準備
-cd /$ROOT_PATH
+cd $ROOT_PATH
 git clone https://github.com/kbc-itw/BookChain-Chaincode.git
 cd ./BookChain-Chaincode
 npm install
