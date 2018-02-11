@@ -14,7 +14,9 @@ ROOT_PATH=$PWD
 
 #BookChain-Chaincode 準備
 cd $ROOT_PATH
+if [  ! -e BookChain-Chaincode ]; then
 git clone https://github.com/kbc-itw/BookChain-Chaincode.git
+fi
 cd ./BookChain-Chaincode
 npm install
 #プロジェクトルートにlibフォルダにビルドする
@@ -23,7 +25,9 @@ npm run build
 
 #fabric-sample　pull
 cd $ROOT_PATH
+if [  ! -e fabric-samples ]; then
 git clone https://github.com/kbc-itw/fabric-samples.git
+fi
 cd ./fabric-samples
 
 git checkout --track origin/test
