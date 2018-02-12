@@ -19,7 +19,7 @@ RUN apt-get install -y nodejs
 #BookChainを動かす
 RUN apt install make -y
 RUN apt install g++ -y
-
+WORKDIR /opt/BookChain
 CMD ["npm", "start"]
 EXPOSE 80
 EXPOSE 8080
