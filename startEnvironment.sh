@@ -65,6 +65,7 @@ cd $ROOT_PATH
 if [  ! -e BookChain ]; then
 RUN git clone https://github.com/kbc-itw/BookChain.git
 fi
+cd ./BookChain
 npm install
 npm run build
 cp $FABRIC_SAMPLES_PATH/fabcar/hfc-key-store/* ./BookChain/hfc-key-store
