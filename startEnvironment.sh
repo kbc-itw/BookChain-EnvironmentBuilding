@@ -69,11 +69,6 @@ npm install
 npm run build
 cp $FABRIC_SAMPLES_PATH/fabcar/hfc-key-store/* ./BookChain/hfc-key-store
 
-cd $BOOKCHAIN_ENV_PATH
-docker build -f ./Dockerfile-platform -t platform .
-docker run -d --name platform -v $ROOT_PATH/BookChain-Client:/opt/BookChain -v $ROOT_PATH/BookChain:/opt/BookChain -t -i -p 80:80 -p 8080:8080 platform
-
-
 echo  "
 oooooooooooo ooooo      ooo oooooooooo.   
  888       8  888b.      8   888     Y8b  
