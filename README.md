@@ -36,3 +36,11 @@ Node.js 8.x lts
 ## Fabric Start
 
 `bash startEnvironment.sh `
+
+## secret.json
+
+クローンされたBookChain/config/secret-template.jsonを編集する
+
+## Platform Start
+
+> bash runPlatform.sh
