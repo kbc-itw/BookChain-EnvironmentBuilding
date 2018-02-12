@@ -68,7 +68,7 @@ fi
 cd ./BookChain
 npm install
 npm run build
-if [ -e hfc-key-sotre ]; then
+if [ -e hfc-key-store ]; then
 rm ./hfc-key-store/*
 else
 mkdir hfc-key-store
