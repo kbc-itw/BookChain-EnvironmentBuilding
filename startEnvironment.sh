@@ -68,7 +68,7 @@ fi
 cd ./BookChain
 npm install
 npm run build
-if [  ! -e hfc-key-sotre ]; then
+if [ -e hfc-key-sotre ]; then
 rm ./hfc-key-store/*
 fi
 cp $FABRIC_SAMPLES_PATH/fabcar/hfc-key-store/* $ROOT_PATH/BookChain/hfc-key-store
