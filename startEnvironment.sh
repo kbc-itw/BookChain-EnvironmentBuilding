@@ -51,9 +51,27 @@ npm install
 node enrollAdmin.js
 node registerUser.js
 
+#BookChain-Clientをpull
+cd $ROOT_PATH
+if [  ! -e BookChain-Client ]; then
+git clone https://github.com/kbc-itw/BookChain-Client.git
+fi
+cd ./BookChain-Client
+npm install
+npm run build
+
+#BookChain
+cd $ROOT_PATH
+if [  ! -e BookChain ]; then
+RUN git clone https://github.com/kbc-itw/BookChain.git
+fi
+npm install
+npm run build
+cp $FABRIC_SAMPLES_PATH/fabcar/hfc-key-store/* ./BookChain/hfc-key-store
+
 cd $BOOKCHAIN_ENV_PATH
 docker build -f ./Dockerfile-platform -t platform .
-docker run -d --name platform -v $FABRIC_SAMPLES_PATH/fabcar/hfc-key-store:/opt/BookChain/hfc-key-store -t -i -p 80:80 -p 8080:8080 platform
+docker run -d --name platform -v $ROOT_PATH/BookChain-Client:/opt/BookChain -v $ROOT_PATH/BookChain:/opt/BookChain -t -i -p 80:80 -p 8080:8080 platform
 
 
 echo  "

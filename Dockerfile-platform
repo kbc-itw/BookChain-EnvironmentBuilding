@@ -16,23 +16,10 @@ RUN apt install curl -y
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get install -y nodejs
 
-#gitのクローンはこのフォルダで行う
-WORKDIR /opt
-
-#BookChain-Clientをpull
-RUN git clone https://github.com/kbc-itw/BookChain-Client.git
-WORKDIR ./BookChain-Client
-RUN npm install
-RUN npm run build
-
-#BookChain
-WORKDIR /opt
-RUN git clone https://github.com/kbc-itw/BookChain.git
-WORKDIR ./BookChain
+#BookChainを動かす
 RUN apt install make -y
 RUN apt install g++ -y
-RUN npm install
-RUN npm run build
+
 CMD ["npm", "start"]
 EXPOSE 80
 EXPOSE 8080
