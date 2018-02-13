@@ -18,3 +18,5 @@ apt install make -y
 apt install g++ -y
 #gcc install
 apt install gcc -y
+
+apt install jq -y
