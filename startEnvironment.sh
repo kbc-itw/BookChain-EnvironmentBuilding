@@ -63,7 +63,7 @@ npm run build
 #BookChain
 cd $ROOT_PATH
 if [  ! -e BookChain ]; then
-RUN git clone https://github.com/kbc-itw/BookChain.git
+git clone https://github.com/kbc-itw/BookChain.git
 fi
 cd ./BookChain
 npm install
