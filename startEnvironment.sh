@@ -12,10 +12,13 @@ BOOKCHAIN_ENV_PATH=$PWD
 cd ../
 ROOT_PATH=$PWD
 
+USER_NAME=${SUDO_USER:-$USER}
+
 #BookChain-Chaincode 準備
 cd $ROOT_PATH
 if [  ! -e BookChain-Chaincode ]; then
 git clone https://github.com/kbc-itw/BookChain-Chaincode.git
+chown -R $USER_NAME:$USER_NAME BookChain-Chaincode
 fi
 cd ./BookChain-Chaincode
 npm install
@@ -27,6 +30,7 @@ npm run build
 cd $ROOT_PATH
 if [  ! -e fabric-samples ]; then
 git clone https://github.com/kbc-itw/fabric-samples.git
+chown -R $USER_NAME:$USER_NAME fabric-samples
 fi
 cd ./fabric-samples
 
@@ -55,6 +59,7 @@ node registerUser.js
 cd $ROOT_PATH
 if [  ! -e BookChain-Client ]; then
 git clone https://github.com/kbc-itw/BookChain-Client.git
+chown -R $USER_NAME:$USER_NAME BookChain-Client
 fi
 cd ./BookChain-Client
 npm install
@@ -64,6 +69,7 @@ npm run build
 cd $ROOT_PATH
 if [  ! -e BookChain ]; then
 git clone https://github.com/kbc-itw/BookChain.git
+chown -R $USER_NAME:$USER_NAME BookChain
 fi
 cd ./BookChain
 npm install
