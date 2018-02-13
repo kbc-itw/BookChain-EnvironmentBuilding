@@ -73,6 +73,7 @@ chown -R $USER_NAME:$USER_NAME BookChain
 fi
 cd ./BookChain
 npm install
+chown -R $USER_NAME:$USER_NAME ./*
 npm run build
 if [ -e hfc-key-store ]; then
 rm -f ./hfc-key-store/*
