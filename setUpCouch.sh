@@ -6,6 +6,12 @@ COUCH=$(cat ./../BookChain/config/secrets.json | jq '.couch')
 
 USER_NAME=$(echo $COUCH | jq -r '.USER_NAME')
 USER_PASSWORD=$(echo $COUCH | jq -r '.USER_PASSWORD')
+
+if [ -n $USER_NAME -a -n $USER_PASSWORD ]; then
+echo "secrets.json‚Ìcouch.USER_NAME USER_PASSWORD‚ð“ü‚ê‚Ä‚­‚¾‚³‚¢"
+exit 1
+fi
+
 PORT=$(echo $COUCH | jq -r '.PORT')
 AUTH_DB_NAME=$(echo $COUCH | jq -r '.AUTH_DB_NAME')
 SSESSION_DB_NAME=$(echo $COUCH | jq -r '.SESSION_DB_NAME')
