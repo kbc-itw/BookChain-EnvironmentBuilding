@@ -58,13 +58,9 @@ for filepath in $files; do
 done
 
 # フォルダ名をchaincode名でinstall
-for ccname in ${dirary[@]}; do
-    docker exec -e "CORE_PEER_LOCALMSPID=$CORE_PEER_LOCALMSPID" -e "CORE_PEER_MSPCONFIGPATH=$CORE_PEER_MSPCONFIGPATH" cli peer chaincode install -n $ccname -v 1.0 -p "/opt/gopath/src/github.com/BookChain-Chaincode/out/$ccname" -l $LANGUAGE
-done
-
 # インスタンスを立ち上げ
 for ccname in ${dirary[@]}; do
-    docker exec -e "CORE_PEER_LOCALMSPID=$CORE_PEER_LOCALMSPID" -e "CORE_PEER_MSPCONFIGPATH=$CORE_PEER_MSPCONFIGPATH" cli peer chaincode instantiate -o orderer.example.com:7050 -C bookchain -n $ccname -l "$LANGUAGE" -v 1.0 -c '{"Args":[""]}' -P "OR ('Org1MSP.member')"
-done 
+	bash $ROOT/BookChain-EnvironmentBuilding/setChaincode.sh $ccname
+done
 
 sleep 10
