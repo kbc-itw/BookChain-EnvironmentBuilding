@@ -7,7 +7,7 @@ COUCH=$(cat ./../BookChain/config/secrets.json | jq '.couch')
 USER_NAME=$(echo $COUCH | jq -r '.USER_NAME')
 USER_PASSWORD=$(echo $COUCH | jq -r '.USER_PASSWORD')
 
-if [ -n $USER_NAME -a -n $USER_PASSWORD ]; then
+if [ -z $USER_NAME -o -z $USER_PASSWORD ]; then
 echo "secrets.jsonのcouch.USER_NAME USER_PASSWORDを入れてください"
 exit 1
 fi
