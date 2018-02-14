@@ -8,7 +8,7 @@ USER_NAME=$(echo $COUCH | jq -r '.USER_NAME')
 USER_PASSWORD=$(echo $COUCH | jq -r '.USER_PASSWORD')
 
 if [ -n $USER_NAME -a -n $USER_PASSWORD ]; then
-echo "secrets.json‚Ìcouch.USER_NAME USER_PASSWORD‚ð“ü‚ê‚Ä‚­‚¾‚³‚¢"
+echo "secrets.jsonã®couch.USER_NAME USER_PASSWORDã‚’å…¥ã‚Œã¦ãã ã•ã„"
 exit 1
 fi
 
