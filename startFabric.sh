@@ -60,7 +60,7 @@ done
 # フォルダ名をchaincode名でinstall
 # インスタンスを立ち上げ
 for ccname in ${dirary[@]}; do
-	bash $ROOT/BookChain-EnvironmentBuilding/setChaincode.sh $ccname
+	bash $Bookchain_EB/setChaincode.sh $ccname
 done
 
 sleep 10
